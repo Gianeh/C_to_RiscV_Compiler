@@ -21,6 +21,44 @@ int main()
     {
         //we expect the name token first
         std::cout << "ntoken: " << ntoken << std::endl;
+        //we expect the colon next , else throw an error
+        if(yylex() != COLON)
+        {
+            std::cout << "Syntax error in line " << yylineno << ": expected ':', got " << yytext << std::endl;
+            return 1;
+        }
+        vtoken = yylex();
+        switch(ntoken){
+            case NAME:
+            case CONFIG:
+            case COMM:
+                if (vtoken != IDENTIFIER)
+                {
+                    std::cout << "Syntax error in line " << yylineno << ": expected identifier, got " << yytext << std::endl;
+                    return 1;
+                }
+                //print the name and value
+                std::cout << names[ntoken - 1] << ": " << yytext << std::endl;
+            case SERIAL:
+                if (vtoken != IDENTIFIER)
+                {
+                    std::cout << "Syntax error in line " << yylineno << ": expected EX, got " << yytext << std::endl;
+                    return 1;
+                }
+                //print the name and value
+                std::cout << names[ntoken - 1] << ": " << yytext << std::endl;
+            case ANSWER:
+                if (vtoken != INTEGER)
+                {
+                    std::cout << "Syntax error in line " << yylineno << ": expected integer, got " << yytext << std::endl;
+                    return 1;
+                }
+                //print the name and value
+                std::cout << names[ntoken - 1] << ": " << yytext << std::endl;
+            default:
+                std::cout << "Syntax error in line " << yylineno << std::endl;
+                return 1;
+        }
         //step by step parsing of the next input
         ntoken = yylex();
 
