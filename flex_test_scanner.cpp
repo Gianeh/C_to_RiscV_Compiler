@@ -9,7 +9,7 @@ extern char* yytext;
 extern int yylineno;
 
 //a serial array containing the names of the input file
-std::string names[] = {"name", "config", "comm", "serial", "answer"};
+std::string names[] = {"", "name", "config", "comm", "serial", "answer"};
 
 int main()
 {
@@ -19,9 +19,11 @@ int main()
     ntoken = yylex();
     while(ntoken)
     {
+        
         //we expect the name token first
         std::cout << "ntoken: " << ntoken << std::endl;
         //we expect the colon next , else throw an error
+        
         if(yylex() != COLON)
         {
             std::cout << "Syntax error in line " << yylineno << ": expected ':', got " << yytext << std::endl;
@@ -32,33 +34,43 @@ int main()
             case NAME:
             case CONFIG:
             case COMM:
+                //print that NAME or CONFIG or COMM are expected
+                std::cout << "expected: NAME or CONFIG or COMM " << std::endl;
                 if (vtoken != IDENTIFIER)
                 {
                     std::cout << "Syntax error in line " << yylineno << ": expected identifier, got " << yytext << std::endl;
                     return 1;
                 }
                 //print the name and value
-                std::cout << names[ntoken - 1] << ": " << yytext << std::endl;
+                std::cout << names[ntoken] << ": " << yytext << std::endl;
+                break;
             case SERIAL:
+                // print that SERIAL is expected
+                std::cout << "expected: SERIAL " << std::endl;
                 if (vtoken != IDENTIFIER)
                 {
                     std::cout << "Syntax error in line " << yylineno << ": expected EX, got " << yytext << std::endl;
                     return 1;
                 }
                 //print the name and value
-                std::cout << names[ntoken - 1] << ": " << yytext << std::endl;
+                std::cout << names[ntoken] << ": " << yytext << std::endl;
+                break;
             case ANSWER:
+                // print that ANSWER is expected
+                std::cout << "expected: ANSWER " << std::endl;
                 if (vtoken != INTEGER)
                 {
                     std::cout << "Syntax error in line " << yylineno << ": expected integer, got " << yytext << std::endl;
                     return 1;
                 }
                 //print the name and value
-                std::cout << names[ntoken - 1] << ": " << yytext << std::endl;
+                std::cout << names[ntoken] << ": " << yytext << std::endl;
+                break;
             default:
                 std::cout << "Syntax error in line " << yylineno << std::endl;
                 return 1;
         }
+
         //step by step parsing of the next input
         ntoken = yylex();
 
