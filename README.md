@@ -90,9 +90,9 @@ int num_lines=0,num_hello=0;
 
 %%
 
-hello   ++num_hello;
+"hello"   ++num_hello;
 
-\n      ++num_lines;
+"\n"      ++num_lines;
 
 .       ;
 
