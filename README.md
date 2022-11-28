@@ -52,9 +52,9 @@ After that, it is time to write the patterns and the corresponding actions
 ```
 %%
 
-hello   ++num_hello;
+"hello"   ++num_hello;
 
-\n      ++num_lines;
+"\n"      ++num_lines;
 
 .       ;
 
