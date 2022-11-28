@@ -3,7 +3,7 @@
 #include "Definitions.h"
 %}
 
-/*%option nounput yylineno*/
+%option nounput yylineno
 %%
 
 "name"         return NAME;
@@ -17,7 +17,7 @@
 
 [a-zA-Z_][a-zA-Z0-9_]* return IDENTIFIER;
 
-[ \t\n]        ;
+[ \t]        ;
 
 [*][^*]*[*]+([^/*][^*]*[*]+)* ;
 
