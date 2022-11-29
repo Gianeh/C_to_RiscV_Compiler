@@ -7,3 +7,4 @@
 #define COLON 6
 #define INTEGER 7
 #define IDENTIFIER 8
+#define STRING 9

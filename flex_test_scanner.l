@@ -15,9 +15,14 @@
 
 [0-9]+         return INTEGER;
 
+[0-9z-zZ-Z]+   return STRING;
+
 [a-zA-Z_][a-zA-Z0-9_]* return IDENTIFIER;
 
 [ \t]        ;
+
+%{// update the linenumber in this kinda intuitive(...) way %}
+[\n]           { }
 
 [*][^*]*[*]+([^/*][^*]*[*]+)* ;
 
