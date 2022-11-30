@@ -10,7 +10,7 @@
     int num;
     char id;
 }
-%start line;
+%start line
 %token print
 %token exit_command
 %token<num> number
@@ -20,24 +20,24 @@
 
 %%
 
-assignment  : identifier '=' exp ';' {updateSymbolVal($1, $3);}
-            ;
-
-exp     :   term          { $$ = $1;}
-        |   exp '+' term  { $$ = $1 + $3;}
-        |   exp '+' term  { $$ = $1 - $3;}
-        ;
-
-term    :   number      {$$ = $1;}
-        |   identifier  {$$ = symbolVal($1);}
-        ;
-
 line    :   assignment ';'          {;}
         |   exit_command ';'        {exit(EXIT_SUCCESS);}
         |   print exp ';'           {printf("Printing %d\n", $2);}
         |   line assignment ';'     {;}
         |   line print exp ';'      {printf("Printing %d\n", $3);}
         |   line exit_command ';'   {exit(EXIT_SUCCESS);}
+        ;
+
+assignment  : identifier '=' exp ';' {updateSymbolVal($1, $3);}
+            ;
+
+exp     :   term          { $$ = $1;}
+        |   exp '+' term  { $$ = $1 + $3;}
+        |   exp '-' term  { $$ = $1 - $3;}
+        ;
+
+term    :   number      {$$ = $1;}
+        |   identifier  {$$ = symbolVal($1);}
         ;
 
 
@@ -58,7 +58,7 @@ int computeSymbolIndex(char token)
 int symbolVal(char symbol)
 {
     int bucket = computeSymbolIndex(symbol);
-    return symbols[bucket]
+    return symbols[bucket];
 }
 
 //update value of given symbol
