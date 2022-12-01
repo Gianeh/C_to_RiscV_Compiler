@@ -448,7 +448,7 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "calc.l"
 #line 2 "calc.l"
-    #include "calc.tab.h"    
+    #include "y.tab.h"    
     int yylex();
     void yyerror(char *s);
 #line 455 "lex.yy.c"

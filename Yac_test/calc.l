@@ -1,5 +1,5 @@
 %{
-    #include "calc.tab.h"    
+    #include "y.tab.h"    
     int yylex();
     void yyerror(char *s);
 %}

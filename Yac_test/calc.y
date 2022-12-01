@@ -5,7 +5,7 @@
     int symbols[52];
     int symbolVal(char symbol);
     void updateSymbolVal(char symbol, int val);
-     int yylex();
+    int yylex();
     void yyerror(char* s);
 %}
 %union {
@@ -31,7 +31,7 @@ line    :   assignment ';'          {;}
         |   line exit_command ';'   {exit(EXIT_SUCCESS);}
         ;
 
-assignment  : identifier '=' exp ';' {updateSymbolVal($1, $3);printf("assignment\n");/*$$ = 3;*/}
+assignment  : identifier '=' exp    {updateSymbolVal($1, $3);printf("assignment\n");}
             ;
 
 exp     :   term          { $$ = $1;}
