@@ -1,7 +1,7 @@
 %{
-    #include "y.tab.h"    
+    #include "calc.tab.h"    
 %}
-%option noyywrap
+
 %option nounput yylineno
 %%
 
@@ -14,3 +14,8 @@
 [-+=;]      {return yytext[0];}
 .           {ECHO; yyerror("Unknown character");}
 %%
+
+int yywrap()
+{
+    return 1;
+}

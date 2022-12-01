@@ -341,9 +341,6 @@ void yyfree ( void *  );
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
 /* Begin user sect3 */
-
-#define yywrap() (/*CONSTCOND*/1)
-#define YY_SKIP_YYWRAP
 typedef flex_uint8_t YY_CHAR;
 
 FILE *yyin = NULL, *yyout = NULL;
@@ -475,9 +472,9 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "calc.l"
 #line 2 "calc.l"
-    #include "y.tab.h"    
-#line 480 "lex.yy.c"
-#line 481 "lex.yy.c"
+    #include "calc.tab.h"    
+#line 477 "lex.yy.c"
+#line 478 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -695,7 +692,7 @@ YY_DECL
 #line 6 "calc.l"
 
 
-#line 699 "lex.yy.c"
+#line 696 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -808,7 +805,7 @@ YY_RULE_SETUP
 #line 16 "calc.l"
 ECHO;
 	YY_BREAK
-#line 812 "lex.yy.c"
+#line 809 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1787,3 +1784,7 @@ void yyfree (void * ptr )
 #line 16 "calc.l"
 
 
+int yywrap()
+{
+    return 1;
+}

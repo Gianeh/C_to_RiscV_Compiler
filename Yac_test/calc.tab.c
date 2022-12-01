@@ -75,7 +75,7 @@
     int symbolVal(char symbol);
     void updateSymbolVal(char symbol, int val);
 
-#line 79 "y.tab.c"
+#line 79 "calc.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -108,8 +108,8 @@
 
 /* Use api.header.include to #include this header
    instead of duplicating it here.  */
-#ifndef YY_YY_Y_TAB_H_INCLUDED
-# define YY_YY_Y_TAB_H_INCLUDED
+#ifndef YY_YY_CALC_TAB_H_INCLUDED
+# define YY_YY_CALC_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -129,11 +129,6 @@ extern int yydebug;
     identifier = 261
   };
 #endif
-/* Tokens.  */
-#define print 258
-#define exit_command 259
-#define number 260
-#define identifier 261
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -144,7 +139,7 @@ union YYSTYPE
     int num;
     char id;
 
-#line 148 "y.tab.c"
+#line 143 "calc.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -157,7 +152,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+#endif /* !YY_YY_CALC_TAB_H_INCLUDED  */
 
 
 
@@ -1322,77 +1317,77 @@ yyreduce:
   case 2:
 #line 23 "calc.y"
                                     {;}
-#line 1326 "y.tab.c"
+#line 1321 "calc.tab.c"
     break;
 
   case 3:
 #line 24 "calc.y"
                                     {exit(EXIT_SUCCESS);}
-#line 1332 "y.tab.c"
+#line 1327 "calc.tab.c"
     break;
 
   case 4:
 #line 25 "calc.y"
                                     {printf("Printing %d\n", (yyvsp[-1].num));}
-#line 1338 "y.tab.c"
+#line 1333 "calc.tab.c"
     break;
 
   case 5:
 #line 26 "calc.y"
                                     {;}
-#line 1344 "y.tab.c"
+#line 1339 "calc.tab.c"
     break;
 
   case 6:
 #line 27 "calc.y"
                                     {printf("Printing %d\n", (yyvsp[-1].num));}
-#line 1350 "y.tab.c"
+#line 1345 "calc.tab.c"
     break;
 
   case 7:
 #line 28 "calc.y"
                                     {exit(EXIT_SUCCESS);}
-#line 1356 "y.tab.c"
+#line 1351 "calc.tab.c"
     break;
 
   case 8:
 #line 31 "calc.y"
                                      {updateSymbolVal((yyvsp[-3].id), (yyvsp[-1].num));}
-#line 1362 "y.tab.c"
+#line 1357 "calc.tab.c"
     break;
 
   case 9:
 #line 34 "calc.y"
                           { (yyval.num) = (yyvsp[0].num);}
-#line 1368 "y.tab.c"
+#line 1363 "calc.tab.c"
     break;
 
   case 10:
 #line 35 "calc.y"
                           { (yyval.num) = (yyvsp[-2].num) + (yyvsp[0].num);}
-#line 1374 "y.tab.c"
+#line 1369 "calc.tab.c"
     break;
 
   case 11:
 #line 36 "calc.y"
                           { (yyval.num) = (yyvsp[-2].num) - (yyvsp[0].num);}
-#line 1380 "y.tab.c"
+#line 1375 "calc.tab.c"
     break;
 
   case 12:
 #line 39 "calc.y"
                         {(yyval.num) = (yyvsp[0].num);}
-#line 1386 "y.tab.c"
+#line 1381 "calc.tab.c"
     break;
 
   case 13:
 #line 40 "calc.y"
                         {(yyval.num) = symbolVal((yyvsp[0].id));}
-#line 1392 "y.tab.c"
+#line 1387 "calc.tab.c"
     break;
 
 
-#line 1396 "y.tab.c"
+#line 1391 "calc.tab.c"
 
       default: break;
     }
@@ -1663,5 +1658,6 @@ int main (void){
 
 void yyerror(char* s)
 {
+    //fprintf(stderr, "ciao\n");
     fprintf(stderr, "%s\n", s);
 }

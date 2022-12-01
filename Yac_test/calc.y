@@ -79,5 +79,6 @@ int main (void){
 
 void yyerror(char* s)
 {
+    //fprintf(stderr, "ciao\n");
     fprintf(stderr, "%s\n", s);
 }

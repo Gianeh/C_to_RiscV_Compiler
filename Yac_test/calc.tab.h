@@ -34,8 +34,8 @@
 /* Undocumented macros, especially those whose name start with YY_,
    are private implementation details.  Do not rely on them.  */
 
-#ifndef YY_YY_Y_TAB_H_INCLUDED
-# define YY_YY_Y_TAB_H_INCLUDED
+#ifndef YY_YY_CALC_TAB_H_INCLUDED
+# define YY_YY_CALC_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -55,11 +55,6 @@ extern int yydebug;
     identifier = 261
   };
 #endif
-/* Tokens.  */
-#define print 258
-#define exit_command 259
-#define number 260
-#define identifier 261
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -70,7 +65,7 @@ union YYSTYPE
     int num;
     char id;
 
-#line 74 "y.tab.h"
+#line 69 "calc.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -83,4 +78,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
+#endif /* !YY_YY_CALC_TAB_H_INCLUDED  */
